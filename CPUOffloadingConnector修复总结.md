@@ -1,7 +1,7 @@
 # vLLM CPUOffloadingConnector 代码修复总结
 
 > **环境信息**
-> - 服务器：`7.6.50.28`，用户 `root`
+> - 服务器：`7.6.50.x`，用户 `root`
 > - 容器：`lzd-lzd_0.18.0-test`
 > - vLLM 版本：`v0.18.0` + `vllm-ascend`（华为昇腾 NPU 910B4-1 × 8）
 > - 模型：`/data/GLM-5-w4a8-mtp-QuaRot/`（8 路 TP，MTP 推测解码）
@@ -173,19 +173,19 @@
 
 ---
 
-## 五、傻瓜式操作步骤
+## 五、操作步骤
 
 ### 方法一：一键修复脚本（推荐）
 
 ```bash
 # 1. 把修复脚本上传到服务器
-scp fix_all_cpu_offload.py root@7.6.50.28:/data/lzd/fix_all_cpu_offload.py
+scp fix_all_cpu_offload.py root@7.6.50.x:/data/lzd/fix_all_cpu_offload.py
 
 # 2. 在容器内执行
-ssh root@7.6.50.28 "docker exec lzd-lzd_0.18.0-test python3 /data/lzd/fix_all_cpu_offload.py"
+ssh root@7.6.50.x "docker exec lzd-lzd_0.18.0-test python3 /data/lzd/fix_all_cpu_offload.py"
 
 # 3. 验证修复结果
-ssh root@7.6.50.28 "docker exec lzd-lzd_0.18.0-test python3 /data/lzd/fix_all_cpu_offload.py --verify"
+ssh root@7.6.50.x "docker exec lzd-lzd_0.18.0-test python3 /data/lzd/fix_all_cpu_offload.py --verify"
 ```
 
 ### 方法二：手动修改（vi 方式）
