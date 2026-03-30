@@ -1,4 +1,4 @@
-# DARS (EARS - Entropy-Adaptive Rejection Sampling) 验证操作方案
+# EARS (EARS - Entropy-Adaptive Rejection Sampling) 验证操作方案
 
 ## 一、概述
 
